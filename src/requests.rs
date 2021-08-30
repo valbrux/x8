@@ -244,8 +244,6 @@ pub async fn request(
                         },
                         None => ()
                     };
-                    writeln!(io::stderr(), "[~] error at the {} observed. Wait 50 sec and repeat.", config.url).ok();
-                    std::thread::sleep(Duration::from_secs(50));
                     match create_request(config, random_query, &hashmap_query, client).send().await {
                         Ok(_) => return ResponseData {
                             text: String::new(),
